@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyString
+  life_point: 1
+  attack_power: 1
+  fav_attack: MyString
+  wins: 1
+  looses: 1
+
+two:
+  name: MyString
+  description: MyString
+  life_point: 1
+  attack_power: 1
+  fav_attack: MyString
+  wins: 1
+  looses: 1
