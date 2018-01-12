@@ -3,9 +3,11 @@ class CaptainsController < ApplicationController
   end
 
   def new
+    @captain = Captain.new
   end
 
   def create
+    @captain = Captain.create(captain_params)
   end
 
   def edit
@@ -20,6 +22,7 @@ class CaptainsController < ApplicationController
   private
 
   def captain_params
+    params.require(:captain).permit(:name, :description, :life_point, :attack_power, :fav_attack)
   end
 
   def set_captain
