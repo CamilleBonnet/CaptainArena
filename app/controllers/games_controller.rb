@@ -3,5 +3,6 @@ class GamesController < ApplicationController
   end
 
   def show
+    @captains = Captain.all
   end
 end
