@@ -1,4 +1,5 @@
 class CaptainsController < ApplicationController
+  before_action :set_captain, only: [:destroy]
   def show
   end
 
@@ -7,7 +8,13 @@ class CaptainsController < ApplicationController
   end
 
   def create
-    @captain = Captain.create(captain_params)
+    @captain = Captain.new(captain_params)
+    if @captain.save
+      redirect_to arena_path
+    else
+      render 'forms/captain_new'
+    end
+
   end
 
   def edit
@@ -17,6 +24,8 @@ class CaptainsController < ApplicationController
   end
 
   def destroy
+    @captain.destroy
+    redirect_to arena_path
   end
 
   private
@@ -26,6 +35,7 @@ class CaptainsController < ApplicationController
   end
 
   def set_captain
+    @captain = Captain.find(params[:id])
   end
 
 end
