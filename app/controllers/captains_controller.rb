@@ -24,4 +24,5 @@ class CaptainsController < ApplicationController
 
   def set_captain
   end
+
 end
