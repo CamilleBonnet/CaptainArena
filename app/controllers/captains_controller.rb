@@ -1,5 +1,5 @@
 class CaptainsController < ApplicationController
-  before_action :set_captain, only: [:destroy]
+  before_action :set_captain, only: [:destroy, :show]
   def show
   end
 
