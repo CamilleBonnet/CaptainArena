@@ -1,11 +1,32 @@
 
 <div class="game">
-  <div class="game-name">
+  <div class="game-name text-center">
+    Game #<%= game.id %>:
+    <% if game.status = "Fight open!" %>
+      <span style="color: green">Fight open!</span>
+    <% else %>
+      <span style="color: red"><%= game.winner %> WON!</span>
+    <% end %>
   </div>
-  <div class="player_a">
-
-  </div>
-  <div class="player_B">
-
+  <div class="players">
+    <div class="player_a">
+      <div class="game-avatar" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= cl_image_path Captain.find(game.player_A).photo.path unless Captain.find(game.player_A).photo.nil? %>')">
+      </div>
+      <p class="player-name">
+        <%= Captain.find(game.player_A).name %><br>
+        Life left: <%= game.life_A %>
+      </p>
+    </div>
+    <div class="versus">
+      VS
+    </div>
+    <div class="player_b">
+      <div class="game-avatar" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= cl_image_path Captain.find(game.player_B).photo.path unless Captain.find(game.player_A).photo.nil? %>')">
+      </div>
+      <p class="player-name">
+        <%= Captain.find(game.player_B).name %><br>
+        Life left: <%= game.life_B %>
+      </p>
+    </div>
   </div>
 </div> <!-- / -->

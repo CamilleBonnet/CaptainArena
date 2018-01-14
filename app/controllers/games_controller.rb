@@ -15,9 +15,11 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(game_params)
-
+    @game.life_A = Captain.find(@game.player_A).life_point
+    @game.life_B = Captain.find(@game.player_B).life_point
+    @game.status = "Fight open!"
     if @game.player_A != @game.player_B && @game.save
-      redirect_to game_path(@game)
+      redirect_to arena_path
     else
       if @game.player_A == @game.player_B
         flash[:alert] = "Player A can be equal to Player B"

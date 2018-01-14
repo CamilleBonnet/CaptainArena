@@ -6,5 +6,9 @@ Rails.application.routes.draw do
   get '/arena' , to: "games#index", as: "arena"
 
   resources :captains, except: [:index]
-  resources :games, except: [:index, :edit, :update]
+  resources :games, except: [:index, :edit, :update] do
+    member do
+      get '/fight', to "games#fight", as: "fight"
+    end
+  end
 end
