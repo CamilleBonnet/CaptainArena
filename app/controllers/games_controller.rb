@@ -4,5 +4,6 @@ class GamesController < ApplicationController
 
   def show
     @captains = Captain.all
+    @captains_ranked = Captain.all.order(wins: :desc, looses: :asc)
   end
 end

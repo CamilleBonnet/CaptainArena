@@ -1,8 +1,19 @@
+<% if @captain.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+      <% @captain.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= simple_form_for [@captain] do |f| %>
   <%= f.input :name, placeholder: 'Name of the Captain', required: true %>
-  <%= f.input :description, placeholder: 'Description of the Captain', required: true %>
-  <%= f.input :life_point %>
-  <%= f.input :attack_power, label: "Power of the attack" %>
-  <%= f.input :fav_attack, label: "Favorite attack" %>
+  <%= f.input :description, placeholder: 'Description of the Captain', required: true, as: :text %>
+  <%= f.input :life_point, required: true  %>
+  <%= f.input :fav_attack, label: "Favorite attack", required: true  %>
+  <%= f.input :attack_power, label: "Power of the attack", required: true  %>
+  <%= f.input :photo, as: :attachinary, required: true  %>
   <%= f.submit "Submit", class: "btn btn-danger" %>
 <% end %>

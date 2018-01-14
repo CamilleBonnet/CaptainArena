@@ -9,7 +9,7 @@
         <% @captains.each do |captain| %>
         <li>
           Name: <%= link_to captain.name, captain_path(captain)  %>
-          </li>
+        </li>
         <ul>
           <li>Description: <%= captain.description  %></li>
           <li>Favorite Attack: <%= captain.fav_attack %></li>
@@ -27,6 +27,24 @@
     </div>
     <div class="col-xs-12 col-md-4">
       <h2 class="text-center">Ranking</h2>
+      <ul>
+        <% @captains_ranked.each do |captain| %>
+        <li>
+          Name: <%= link_to captain.name, captain_path(captain)  %>
+        </li>
+        <ul>
+          <li>
+            Description: <%= captain.description  %>
+          </li>
+          <li>
+            Wins: <%= captain.wins  %>
+          </li>
+          <li>
+            Loses: <%= captain.looses  %>
+          </li>
+        </ul>
+        <% end %>
+      </ul>
     </div>
   </div>
 </div>

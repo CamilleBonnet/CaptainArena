@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
-
-  get 'captains/show'
-
-  get 'captains/new'
-
   root to: 'games#home'
+
+  mount Attachinary::Engine => "/attachinary"
+
   get '/arena' , to: "games#show", as: "arena"
 
   resources :captains, except: [:index]
