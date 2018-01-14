@@ -3,7 +3,8 @@ Rails.application.routes.draw do
 
   mount Attachinary::Engine => "/attachinary"
 
-  get '/arena' , to: "games#show", as: "arena"
+  get '/arena' , to: "games#index", as: "arena"
 
   resources :captains, except: [:index]
+  resources :games, except: [:index, :edit, :update]
 end
