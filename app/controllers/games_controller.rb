@@ -1,12 +1,12 @@
 class GamesController < ApplicationController
-  before_action :set_game, only: [:show, :destroy]
+  before_action :set_game, only: [:show, :destroy, :fight]
   def home
   end
 
   def index
     @captains = Captain.all.order(name: :asc)
     @captains_ranked = Captain.all.order(wins: :desc, looses: :asc)
-    @games = Game.all
+    @games = Game.all.order(id: :asc)
   end
 
   def new
@@ -33,6 +33,34 @@ class GamesController < ApplicationController
   def destroy
     @game.destroy
     redirect_to arena_path
+  end
+
+  def fight
+    captain_a = Captain.find(@game.player_A)
+    captain_b = Captain.find(@game.player_B)
+    if ['a','b'].sample == 'a'
+      @game.life_B -= captain_a.attack_power
+      if @game.life_B <= 0
+        @game.winner = captain_a.id
+        captain_a.wins += 1
+        captain_b.looses += 1
+        @game.status = 'done'
+        captain_a.save
+        captain_b.save
+      end
+    else
+      @game.life_A -= captain_b.attack_power
+      if @game.life_A <= 0
+        @game.winner = captain_b.id
+        captain_b.wins += 1
+        captain_a.looses += 1
+        @game.status = 'done'
+        captain_a.save
+        captain_b.save
+      end
+    end
+    @game.save
+    redirect_to game_path(@game)
   end
 
   private

@@ -2,10 +2,10 @@
 <div class="game">
   <div class="game-name text-center">
     Game #<%= game.id %>:
-    <% if game.status = "Fight open!" %>
+    <% if game.status == "Fight open!" %>
       <span style="color: green">Fight open!</span>
     <% else %>
-      <span style="color: red"><%= game.winner %> WON!</span>
+      <span style="color: red"><%= Captain.find(game.winner).name %> WON!</span>
     <% end %>
   </div>
   <div class="players">
@@ -14,7 +14,8 @@
       </div>
       <p class="player-name">
         <%= Captain.find(game.player_A).name %><br>
-        Life left: <%= game.life_A %>
+        Life left: <b><%= game.life_A %></b><br>
+        Power attack: <%= Captain.find(game.player_A).attack_power %>
       </p>
     </div>
     <div class="versus">
@@ -25,7 +26,8 @@
       </div>
       <p class="player-name">
         <%= Captain.find(game.player_B).name %><br>
-        Life left: <%= game.life_B %>
+        Life left: <b><%= game.life_B %></b><br>
+        Power attack: <%= Captain.find(game.player_B).attack_power %>
       </p>
     </div>
   </div>
