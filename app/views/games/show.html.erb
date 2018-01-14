@@ -4,47 +4,64 @@
   </div>
   <div class="row">
     <div class="col-xs-12 col-md-4">
-      <h2 class="text-center">Here are all the captains!</h2>
-      <ul>
-        <% @captains.each do |captain| %>
-        <li>
-          Name: <%= link_to captain.name, captain_path(captain)  %>
-        </li>
-        <ul>
-          <li>Description: <%= captain.description  %></li>
-          <li>Favorite Attack: <%= captain.fav_attack %></li>
-          <li>Life Point: <%= captain.life_point  %></li>
-          <li>Attack Power <%= captain.attack_power %></li>
-          <li><%= link_to "Edit Captain", edit_captain_path(captain), class:"btn btn-warning" %></li>
-          <li><%= link_to "Delete Captain", captain_path(captain), method: :delete, data: { confirm: "Are you sure to delete #{captain.name} ?" }, class:"btn btn-primary" %></li>
-        </ul>
+      <h2 class="text-center">All the captains!</h2>
+      <% @captains.each do |captain| %>
+      <div class="captain-card">
+        <%= link_to captain_path(captain), class: "card-link" do %>
+        <div class="image card" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%=cl_image_path captain.photo.path unless captain.photo.nil? %>')">
+        </div>
+        <div class="content">
+          <%= link_to captain.name, captain_path(captain), class: "title" %>
+          <div class="footer">
+            <!-- TODO: what should we add here? -->
+            <div class="info pull-left big-height">
+              Life points: <%= captain.life_point %><br>
+              Favorite attack: <%= captain.fav_attack %><br>
+              Attack power: <%= captain.attack_power %>
+            </div>
+            <div class="pull-right">
+              <!-- TODO: implement dynamic likes -->
+              <%= link_to edit_captain_path(captain), class: "card-link" do %>
+              <i class="fa fa-pencil" aria-hidden="true""></i>
+              <% end %>
+              <%= link_to captain_path(captain), method: :delete, data: { confirm: "Are you sure to delete #{captain.name} ?" }, class: "card-link" do %>
+                <i class="fa fa-trash" aria-hidden="true"></i>
+              <% end %>
+
+            </div>
+          </div>
+        </div>
         <% end %>
-      </ul>
+      </div>
+
+      <% end %>
       <%= link_to "Add a new Captain", new_captain_path, class:"btn btn-danger" %>
     </div>
+
+
+
     <div class="col-xs-12 col-md-4">
       <h2 class="text-center">Games</h2>
     </div>
+
+
     <div class="col-xs-12 col-md-4">
       <h2 class="text-center">Ranking</h2>
-      <ul>
-        <% @captains_ranked.each do |captain| %>
-        <li>
-          Name: <%= link_to captain.name, captain_path(captain)  %>
-        </li>
-        <ul>
-          <li>
-            Description: <%= captain.description  %>
-          </li>
-          <li>
-            Wins: <%= captain.wins  %>
-          </li>
-          <li>
-            Loses: <%= captain.looses  %>
-          </li>
-        </ul>
+      <% @captains_ranked.each do |captain| %>
+      <div class="captain-card">
+        <%= link_to captain_path(captain), class: "card-link" do %>
+        <div class="image card" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%=cl_image_path captain.photo.path unless captain.photo.nil? %>')">
+          <div class="ratio">
+              W/L : <b><%= captain.wins %> / <%= captain.looses %></b>
+            </div>
+        </div>
+        <div class="content">
+          <%= link_to captain.name, captain_path(captain), class: "title" %>
+        </div>
         <% end %>
-      </ul>
-    </div>
+      </div>
+      <% end %>
+    </ul>
   </div>
+</div>
 </div>

@@ -1,0 +1,61 @@
+.captain-card {
+  margin: 20px auto;
+  line-height: 1.1;
+  background-color: transparent;
+  width: 250px;
+  a {
+    text-decoration: none;
+  }
+  .image {
+    margin:auto;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 6px;
+    position: relative;
+    background-size: cover !important;
+    background-position-y: center;
+    background-position-x: center;
+  }
+  .content {
+    padding: 10px 10px 5px 0px;
+    .title {
+      color: $gray-dark;
+      font-size: 18px;
+      font-weight: 700;
+      display:flex;
+      justify-content:center
+    }
+    .footer {
+      font-size: 16px;
+      padding: 0;
+      background-color: transparent;
+      line-height: 30px;
+      .info {
+        margin: auto;
+        color: $gray;
+      }
+      div {
+        display: inline-block;
+      }
+    }
+    .big-height{
+      height:100px;
+    }
+    .small-height{
+      height: 40px
+    }
+  }
+  .card-link {
+    color: $gray;
+    text-align: center;
+  }
+}
+
+.ratio{
+  color: $gray;
+  background: $light-gray;
+  position: absolute;
+  bottom: 0;
+  left: 50px;
+}
