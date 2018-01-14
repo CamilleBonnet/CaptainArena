@@ -1,0 +1,15 @@
+<% if @game.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+      <% @game.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= simple_form_for [@game] do |f| %>
+  <%= f.input :player_A, placeholder: 'Name of the Captain A', required: true, collection: Captain.all %>
+  <%= f.input :player_B, placeholder: 'Name of the Captain B', required: true, collection: Captain.all %>
+  <%= f.submit "Submit", class: "btn btn-danger" %>
+<% end %>

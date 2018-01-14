@@ -59,3 +59,58 @@
   bottom: 0;
   left: 50px;
 }
+
+.game-card{
+  text-decoration:none;
+  color: $gray;
+}
+
+.game-card:hover{
+  text-decoration:none;
+  color: $gray;
+}
+
+.game{
+  border: solid 1px #ccc;
+  border-radius: 5px;
+  // height: 150px;
+  margin: 15px auto;
+}
+
+.game:hover{
+  border: solid 1px $red;
+  opacity: 0.5;
+}
+
+.players{
+  display: flex;
+  justify-content: space-around;
+}
+
+.game-avatar{
+  margin: auto;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  background-size: cover !important;
+    background-position-y: center;
+    background-position-x: center;
+}
+
+.player-name{
+  font-size:12px;
+  text-align:center;
+}
+
+.versus{
+  display:flex;
+  align-items:center;
+  margin-bottom: 15px;
+  font-size: 25px;
+  color: $red;
+  width:10%;
+}
+
+.player_a, .player_b{
+  width:45%;
+}

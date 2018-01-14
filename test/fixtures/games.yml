@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  player_A: 1
+  player_B: 1
+  life_A: 1
+  life_B: 1
+  winner: 1
+  status: MyString
+
+two:
+  player_A: 1
+  player_B: 1
+  life_A: 1
+  life_B: 1
+  winner: 1
+  status: MyString
