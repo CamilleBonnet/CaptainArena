@@ -36,7 +36,7 @@ class CaptainsController < ApplicationController
   private
 
   def captain_params
-    params.require(:captain).permit(:name, :description, :life_point, :attack_power, :fav_attack)
+    params.require(:captain).permit(:name, :description, :life_point, :attack_power, :fav_attack, :photo)
   end
 
   def set_captain
