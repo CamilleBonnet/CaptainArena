@@ -28,6 +28,7 @@ N'ayant eu que peu de temps pour faire ce test, voici les principales limitation
  - L'historique des coups pourrait être stocké dans des registres appartenant à chaque combat
  - le front (choix des couleurs, police, disposition) pourrait être amélioré (notamment la show page des captains qui est basique)
  - ajouter des armures et boucliers pour complexifer les combats
+ - des validations pourraient être ajoutées pour rendre le site plus réaliste (puissance des attaques positive, nb de vie positifs, etc.)
 
 
 `URL` : https://captain-arena.herokuapp.com/
