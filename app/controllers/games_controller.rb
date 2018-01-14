@@ -19,7 +19,7 @@ class GamesController < ApplicationController
     @game.life_B = Captain.find(@game.player_B).life_point
     @game.status = "Fight open!"
     if @game.player_A != @game.player_B && @game.save
-      redirect_to arena_path
+      redirect_to game_path(@game)
     else
       if @game.player_A == @game.player_B
         flash[:alert] = "Player A can be equal to Player B"
