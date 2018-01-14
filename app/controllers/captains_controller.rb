@@ -9,10 +9,12 @@ class CaptainsController < ApplicationController
 
   def create
     @captain = Captain.new(captain_params)
+    @captain.wins = 0
+    @captain.looses = 0
     if @captain.save
       redirect_to arena_path
     else
-      render 'forms/captain_new'
+      render 'captains/new'
     end
 
   end
@@ -24,7 +26,7 @@ class CaptainsController < ApplicationController
     if @captain.update(captain_params)
       redirect_to arena_path
     else
-      render 'forms/captain_new'
+      render 'captains/new'
     end
   end
 
