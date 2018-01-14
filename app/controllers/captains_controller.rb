@@ -1,5 +1,5 @@
 class CaptainsController < ApplicationController
-  before_action :set_captain, only: [:destroy]
+  before_action :set_captain, only: [:destroy, :show, :edit, :update]
   def show
   end
 
@@ -21,6 +21,11 @@ class CaptainsController < ApplicationController
   end
 
   def update
+    if @captain.update(captain_params)
+      redirect_to arena_path
+    else
+      render 'forms/captain_new'
+    end
   end
 
   def destroy
